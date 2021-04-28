@@ -1,0 +1,78 @@
+bindAddress: :7053
+debugHTTPAddress: 127.0.0.1:5555
+dohEnabled: false
+primaryDNS:
+  - name: DNSPod
+    address: 119.29.29.29:53
+    protocol: udp
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+  - name: Ali
+    address: 223.5.5.5:53
+    protocol: udp
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+  - name: 114
+    address: 114.114.114.114:53
+    protocol: udp
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+alternativeDNS:
+  - name: Cloudflare
+    address: 1.1.1.1:53
+    protocol: tcp
+    socks5Address: "127.0.0.1:7891"
+    timeout: 6
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+  - name: GoogleTLS
+    address: dns.google:853@8.8.8.8
+    protocol: tcp-tls
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+  - name: Google
+    address: 8.8.8.8:53
+    protocol: tcp
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+onlyPrimaryDNS: false
+ipv6UseAlternativeDNS: false
+alternativeDNSConcurrent: false
+whenPrimaryDNSAnswerNoneUse: primaryDNS
+ipNetworkFile:
+  primary: /etc/overture/ip_network_primary_sample
+  alternative: /etc/overture/ip_network_alternative_sample
+domainFile:
+  primary: /etc/overture/domain_primary_sample
+  alternative:  /etc/overture/domain_alternative_sample
+  matcher: full-map
+hostsFile:
+  hostsFile: /etc/overture/hosts_sample
+  finder: full-map
+minimumTTL: 0
+domainTTLFile: /etc/overture//domain_ttl_sample
+cacheSize: 10000
+rejectQType:
+  - 255

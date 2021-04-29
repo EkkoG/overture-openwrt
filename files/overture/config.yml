@@ -67,7 +67,7 @@ ipNetworkFile:
 domainFile:
   primary: /etc/overture/domain_primary_sample
   alternative:  /etc/overture/domain_alternative_sample
-  matcher: full-map
+  matcher: suffix-tree
 hostsFile:
   hostsFile: /etc/overture/hosts_sample
   finder: full-map

@@ -4,6 +4,18 @@ USE_PROCD=1
 
 START=99
 
+CRON_FILE="/etc/crontabs/root"
+
+add_cron(){
+	[ -z "$(grep -w "/etc/overture/overture-cron.sh" $CRON_FILE)" ] && echo "10 2 * * * /etc/overture/overture-cron.sh" >> $CRON_FILE
+	crontab $CRON_FILE
+}
+
+del_cron(){
+	sed -i '/overture-cron.sh/d' $CRON_FILE
+	/etc/init.d/cron restart
+}
+
 overture_parameters() {
 	[ "$(config_get $1 VerboseMode)" == "1" ] && echo -v
 	[ "$(config_get $1 LogToFile)" != "" ] && echo -l $(config_get $1 LogToFile)
@@ -32,6 +44,8 @@ start_service() {
 	mkdir -p /var/run/overture
 	config_load overture
 	config_foreach overture_start overture
+
+	add_cron
 }
 
 stop_service() {

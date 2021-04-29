@@ -62,17 +62,17 @@ ipv6UseAlternativeDNS: false
 alternativeDNSConcurrent: false
 whenPrimaryDNSAnswerNoneUse: primaryDNS
 ipNetworkFile:
-  primary: /etc/overture/ip_network_primary_sample
-  alternative: /etc/overture/ip_network_alternative_sample
+  primary: /etc/overture/ip_network_primary
+  alternative: /etc/overture/ip_network_alternative
 domainFile:
-  primary: /etc/overture/domain_primary_sample
-  alternative:  /etc/overture/domain_alternative_sample
+  primary: /etc/overture/domain_primary
+  alternative:  /etc/overture/domain_alternative
   matcher: suffix-tree
 hostsFile:
-  hostsFile: /etc/overture/hosts_sample
+  hostsFile: /etc/overture/hosts
   finder: full-map
 minimumTTL: 0
-domainTTLFile: /etc/overture//domain_ttl_sample
+domainTTLFile: /etc/overture//domain_ttl
 cacheSize: 10000
 rejectQType:
   - 255

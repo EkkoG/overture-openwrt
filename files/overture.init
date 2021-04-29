@@ -11,7 +11,7 @@ overture_parameters() {
 }
 
 overture_start() {
-	[ "$(config_get $1 Disabled)" == "1" ] && return
+	[ "$(config_get $1 enable)" == "0" ] && return
 
 	local config=/etc/overture/config.yml
 	local tmp=/var/overture-config.yml

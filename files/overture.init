@@ -22,12 +22,19 @@ overture_parameters() {
 	[ "$(config_get $1 CoreNumber)" != "" ] && echo -p $(config_get $1 CoreNumber)
 }
 
+append_custom() {
+	for i in $(cat /etc/overture/domain_primary_custom);do if [ $(grep -i $i /etc/overture/domain_primary) ];then echo "$i found";else echo "$i" >> /etc/overture/domain_primary ;fi;done
+	for i in $(cat /etc/overture/domain_alternative_custom);do if [ $(grep -i $i /etc/overture/domain_alternative) ];then echo "$i found";else echo "$i" >> /etc/overture/domain_alternative ;fi;done
+}
+
 overture_start() {
 	[ "$(config_get $1 enable)" == "0" ] && return
 
 	local config=/etc/overture/config.yml
 	local tmp=/var/overture-config.yml
 	cp $config $tmp
+
+	append_custom  2>&1 >> /dev/null 
 
 	procd_open_instance overture-$1
 	procd_set_param command overture -c $tmp $(overture_parameters $1)

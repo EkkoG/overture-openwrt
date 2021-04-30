@@ -34,7 +34,25 @@ alternativeDNS:
     address: 1.1.1.1:53
     protocol: tcp
     socks5Address: "127.0.0.1:7891"
-    timeout: 6
+    timeout: 3
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+  - name: CloudflareTLS
+    address: cloudflare-dns.com:853@1.1.1.1
+    protocol: tcp-tls
+    socks5Address: "127.0.0.1:7891"
+    timeout: 3
+    ednsClientSubnet:
+      policy: disable
+      externalIP:
+      noCookie: true
+  - name: NextTLS
+    address: e7b33b.dns.nextdns.io:853@45.90.28.0
+    protocol: tcp-tls
+    socks5Address: "127.0.0.1:7891"
+    timeout: 3
     ednsClientSubnet:
       policy: disable
       externalIP:

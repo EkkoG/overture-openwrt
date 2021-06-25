@@ -23,8 +23,10 @@ jobs:
           fetch-depth: 0
       - name: Make feeds
         run: |
+          cd /tmp
           mkdir feeds
-          cp -r . feeds
+          cp -r $GITHUB_WORKSPACE feeds
+          cp -r feeds $GITHUB_WORKSPACE
 
       - name: Build
         uses: openwrt/gh-action-sdk@master

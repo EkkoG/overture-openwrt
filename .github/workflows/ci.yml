@@ -21,18 +21,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Make feeds
-        run: |
-          cd /tmp
-          mkdir feeds
-          cp -r $GITHUB_WORKSPACE feeds
-          cp -r feeds $GITHUB_WORKSPACE
 
       - name: Build
         uses: openwrt/gh-action-sdk@master
         env:
           ARCH: ${{ matrix.arch }}
           PACKAGES: overture
+          CUSTOM_PKG: overture
       - name: Store packages
         uses: actions/upload-artifact@v2
         with:

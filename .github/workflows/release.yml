@@ -29,6 +29,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: bin/packages/${{ matrix.arch }}/base/*.ipk
+          files: bin/packages/${{ matrix.arch }}/base/overture*.ipk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

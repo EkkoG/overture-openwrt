@@ -1,11 +1,31 @@
 version: '3.5'
 services:
+  openwrt-overture-build-r2s:
+    image: "openwrtorg/sdk:rockchip-armv8-21.02-SNAPSHOT"
+    container_name: openwrt-overture-build-r2s
+    volumes:
+     - ./bin/21:/home/build/openwrt/bin
+     - ./key-build:/home/build/openwrt/key-build
+     - ./:/home/build/openwrt/package/overture
+     - ./build.sh:/home/build/openwrt/build.sh
+    command: "./build.sh"
+
   openwrt-overture-build:
     image: "openwrtorg/sdk:x86_64-19.07.7"
     container_name: openwrt-overture-build
     volumes:
-     - ./bin:/home/build/openwrt/bin
+     - ./bin/19:/home/build/openwrt/bin
      - ./key-build:/home/build/openwrt/key-build
      - ./:/home/build/openwrt/package/overture
      - ./build.sh:/home/build/openwrt/build.sh
+    command: "./build.sh"
+
+  openwrt-overture-build-ar71xx:
+    image: "openwrtorg/sdk:ar71xx-nand-19.07.7"
+    container_name: openwrt-overture-build-ar71xx
+    volumes:
+      - ./bin/19:/home/build/openwrt/bin
+      - ./key-build:/home/build/openwrt/key-build
+      - ./:/home/build/openwrt/package/overture
+      - ./build.sh:/home/build/openwrt/build.sh
     command: "./build.sh"

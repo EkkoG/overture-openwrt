@@ -1,4 +1,4 @@
-name: overture-openwrt
+name: release
 
 on:
   release:

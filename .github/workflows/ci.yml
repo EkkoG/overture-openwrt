@@ -9,6 +9,8 @@ jobs:
   build:
     name: ${{ matrix.arch }} build
     runs-on: ubuntu-latest
+    env:
+      PKG: overture
     strategy:
       matrix:
         arch:
@@ -23,9 +25,10 @@ jobs:
           fetch-depth: 0
 
       - name: Build
-        uses: aparcar/action-openwrt-sdk@composite
+        uses: cielpy/gh-action-sdk@master
         env:
           ARCH: ${{ matrix.arch }}
+          PACKAGES: overture
       - name: Store packages
         uses: actions/upload-artifact@v2
         with:

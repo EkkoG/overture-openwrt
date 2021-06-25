@@ -21,9 +21,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Make feeds
+        run: |
+          mkdir feeds
+          cp -r . feeds
 
       - name: Build
-        uses: cielpy/gh-action-sdk@master
+        uses: openwrt/gh-action-sdk@master
         env:
           ARCH: ${{ matrix.arch }}
           PACKAGES: overture

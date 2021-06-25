@@ -9,6 +9,8 @@ jobs:
   build:
     name: ${{ matrix.arch }} build
     runs-on: ubuntu-latest
+    env:
+      PKG: overture
     strategy:
       matrix:
         arch:

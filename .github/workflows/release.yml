@@ -23,12 +23,15 @@ jobs:
           fetch-depth: 0
 
       - name: Build
-        uses: aparcar/action-openwrt-sdk@composite
+        uses: cielpy/gh-action-sdk@master
         env:
           ARCH: ${{ matrix.arch }}
+          PACKAGES: overture
+          CUSTOM_PKG_DIR: overture
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: bin/packages/${{ matrix.arch }}/packages/*.ipk
+          files: bin/packages/${{ matrix.arch }}/base/*.ipk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,37 @@
+name: release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    name: ${{ matrix.arch }} build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch:
+          - x86_64
+          - mips_24kc
+          - aarch64_generic
+          
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Build
+        uses: cielpy/gh-action-sdk@master
+        env:
+          ARCH: ${{ matrix.arch }}
+          PACKAGES: overture
+          CUSTOM_PKG_DIR: overture
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: bin/packages/${{ matrix.arch }}/base/*.ipk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

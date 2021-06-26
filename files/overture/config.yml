@@ -59,8 +59,8 @@ alternativeDNS:
       noCookie: true
   - name: GoogleTLS
     address: dns.google:853@8.8.8.8
+    socks5Address: "127.0.0.1:7891"
     protocol: tcp-tls
-    socks5Address:
     timeout: 6
     ednsClientSubnet:
       policy: disable
@@ -68,8 +68,8 @@ alternativeDNS:
       noCookie: true
   - name: Google
     address: 8.8.8.8:53
+    socks5Address: "127.0.0.1:7891"
     protocol: tcp
-    socks5Address:
     timeout: 6
     ednsClientSubnet:
       policy: disable
@@ -91,6 +91,6 @@ hostsFile:
   finder: full-map
 minimumTTL: 0
 domainTTLFile: /etc/overture//domain_ttl
-cacheSize: 10000
+cacheSize: 1000
 rejectQType:
   - 255

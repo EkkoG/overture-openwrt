@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=overture
-PKG_VERSION:=1.7
+PKG_VERSION:=1.8-rc1
 PKG_RELEASE:=1
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE.md
@@ -9,7 +9,7 @@ PKG_LICENSE_FILES:=LICENSE.md
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 #PKG_SOURCE_URL:=https://github.com/shawn1m/overture/archive/v$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/shawn1m/overture/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=d3912fe53d2f6a60d20767a8dc5041333f8b5386b7d23d959b4de872d12b5024
+PKG_HASH:=8ffaf380ebc5dfff89a8703912d5e33aec4870dd2259ca445aa257a4bb5bca6b
 
 PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1

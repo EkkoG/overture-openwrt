@@ -46,6 +46,7 @@ define Package/overture/install
 	$(INSTALL_CONF) ./files/overture.config $(1)/etc/config/overture
 	$(INSTALL_DIR) $(1)/etc/overture
 	$(INSTALL_CONF) ./files/overture/* $(1)/etc/overture/
+	$(INSTALL_BIN) ./files/overture/*.sh $(1)/etc/overture/
 endef
 
 $(eval $(call GoBinPackage,overture))

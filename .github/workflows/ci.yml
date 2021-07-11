@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Build
-        uses: cielpy/gh-action-sdk@master
+        uses: cielpy/gh-action-sdk@testoverride
         env:
           ARCH: ${{ matrix.arch }}
           PACKAGES: overture

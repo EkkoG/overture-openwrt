@@ -8,3 +8,5 @@ cat ip_network_primary6 >> ip_network_primary
 rm ip_network_primary6
 wget https://raw.githubusercontent.com/pexcn/daily/gh-pages/gfwlist/gfwlist.txt -O domain_alternative
 wget https://raw.githubusercontent.com/pexcn/daily/gh-pages/chinalist/chinalist.txt -O domain_primary
+
+/etc/init.d/overture restart

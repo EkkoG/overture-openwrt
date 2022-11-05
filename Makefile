@@ -49,5 +49,5 @@ define Package/overture2/install
 	$(INSTALL_BIN) ./files/overture/*.sh $(1)/etc/overture/
 endef
 
-$(eval $(call GoBinPackage,overture2))
-$(eval $(call BuildPackage,overture2))
+$(eval $(call GoBinPackage,overture))
+$(eval $(call BuildPackage,overture))

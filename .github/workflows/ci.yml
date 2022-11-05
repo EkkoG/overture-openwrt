@@ -28,6 +28,7 @@ jobs:
           ARCH: ${{ matrix.arch }}
           PACKAGES: overture2
           CUSTOM_PKG_DIR: overture2
+          V: sc
       - name: Store packages
         uses: actions/upload-artifact@v2
         with:

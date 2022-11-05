@@ -1,6 +1,6 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=overture
+PKG_NAME:=overture2
 PKG_VERSION:=1.8-rc1
 PKG_RELEASE:=2
 PKG_LICENSE:=MIT
@@ -22,7 +22,7 @@ GO_PKG_LDFLAGS_X:=main.version=$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
-define Package/overture
+define Package/overture2
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=IP Addresses and Names
@@ -30,12 +30,12 @@ define Package/overture
   URL:=https://github.com/shawn1m/overture
 endef
 
-define Package/overture/description
+define Package/overture2/description
   Overture is a DNS server/forwarder/dispatcher written in Go.
   Overture means an orchestral piece at the beginning of a classical music composition, just like DNS which is nearly the first step of surfing the Internet.
 endef
 
-define Package/overture/install
+define Package/overture2/install
 	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
 
 	$(INSTALL_DIR) $(1)/usr/sbin
@@ -49,5 +49,5 @@ define Package/overture/install
 	$(INSTALL_BIN) ./files/overture/*.sh $(1)/etc/overture/
 endef
 
-$(eval $(call GoBinPackage,overture))
-$(eval $(call BuildPackage,overture))
+$(eval $(call GoBinPackage,overture2))
+$(eval $(call BuildPackage,overture2))

@@ -26,8 +26,8 @@ jobs:
         uses: cielpy/gh-action-sdk@master
         env:
           ARCH: ${{ matrix.arch }}
-          PACKAGES: overture
-          CUSTOM_PKG_DIR: overture
+          PACKAGES: overture2
+          CUSTOM_PKG_DIR: overture2
       - name: Store packages
         uses: actions/upload-artifact@v2
         with:

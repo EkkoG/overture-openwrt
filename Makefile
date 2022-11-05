@@ -6,7 +6,7 @@ PKG_RELEASE:=2
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE.md
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=overture-$(PKG_VERSION).tar.gz
 #PKG_SOURCE_URL:=https://github.com/shawn1m/overture/archive/v$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/shawn1m/overture/tar.gz/v$(PKG_VERSION)?
 PKG_HASH:=8ffaf380ebc5dfff89a8703912d5e33aec4870dd2259ca445aa257a4bb5bca6b
